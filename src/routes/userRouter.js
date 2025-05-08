@@ -25,9 +25,7 @@ router.get("/v1/blogs", auth, allBlogs);
 
 router.get("/v1/myblogs", auth, myBlogs);
 
-
-router.put("/v1/myblogs/:id", auth, updateBlog);
-
+router.put("/v1/myblogs/:postId", auth, updateBlog);
 
 router.delete('/v1/myblogs/:postId',auth,deletecontroller);
 

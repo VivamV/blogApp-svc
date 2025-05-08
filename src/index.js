@@ -1,14 +1,18 @@
+import dotenv from 'dotenv';
+dotenv.config(); 
 
-import dbconnection from "./config/db.js";
-import serverSetup from "./server.js";
-import dotenv from "dotenv";
-dotenv.config();
+import dbconnection from './config/db.js';
+import serverSetup from './server.js';
 
-console.log("process .env .port",process.env.PORT);
+// console.log("process .env SEcret key", process.env.SECRET_KEY);
+// console.log("process env PORT",process.env.PORT)
+
+const port = process.env.PORT || 4000;
+
 dbconnection()
   .then(() => {
-    serverSetup().listen(4000, () =>
-      console.log(`Server started at PORT 4000`)
+    serverSetup().listen(port, () =>
+      console.log(`Server started at PORT ${port}`)
     );
   })
   .catch((err) => console.log(err.message));
